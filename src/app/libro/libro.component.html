@@ -1,0 +1,91 @@
+
+<div class="container">
+  <div class = "row">
+    <div class = "col-12">
+      <h1> Registrar un nuevo libro </h1>
+      <form [formGroup]="vFrmgLoginForm" (ngSubmit)="GuardarLibro(vFrmgLoginForm.value)">
+
+        <div class="form-group"><br>
+          <input type="text" id="titulo" class="form-control" placeholder="Titulo" formControlName="f01_titulo">
+          <input type="date" id="fecha" class="form-control" placeholder="Fecha" formControlName="f01_fecha">
+          <input type="text" id="genero" class="form-control" placeholder="Genero" formControlName="f01_genero">
+          <input type="text" id="numPag" class="form-control" placeholder="Numero de paginas" formControlName="f01_num_paginas">
+          <input type="text" id="autor" class="form-control" placeholder="Autor" formControlName="f01_autor"><br>
+
+          <button type="submit" class="btn btn-primary">Guardar Libro</button>
+
+
+        </div>
+      </form>
+      <!--
+      <form (ngSubmit)="ConsultarAutor">
+        <button type="submit" class="btn btn-primary">Consultar Autor</button>
+      </form>
+      -->
+
+      <br><br><br>
+      <h1> Listado de Libros</h1>
+      <input type="text" class = "form-control" name="filterPost" placeholder="Buscar..." [(ngModel)]="filterPost">
+      <table class="table table-hover table-border table-sm">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Genero</th>
+            <th scope="col">Numero de paginas</th>
+            <th scope="col">Autor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let Libros of libro | filter:filterPost " >
+
+            <th scope="row">{{Libros.f01_rowid}}</th>
+            <td>{{Libros.f01_titulo}}</td>
+            <td>{{Libros.f01_fecha | date:'dd/MM/yy'}}</td>
+            <td>{{Libros.f01_genero}}</td>
+            <td>{{Libros.f01_num_paginas}}</td>
+            <td>{{Libros.f01_autor}}</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+</div>
+
+
+<!--
+<div class="container">
+  <h1>Listado Posts</h1>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <input type="text" class="form-control" name="filterPost" placeholder="Search..." [(ngModel)]="filterPost">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Title</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let post of posts | filter:filterPost">
+            <td>{{post.id}}</td>
+            <td>{{post.title}}</td>
+            <td>{{post.date}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+-->

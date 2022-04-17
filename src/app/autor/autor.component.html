@@ -1,0 +1,43 @@
+
+<div class="container">
+  <div class = "row">
+    <div class = "col-12">
+      <h1> Registrar un nuevo Autor </h1>
+      <form [formGroup]="vFrmgLoginForm" (ngSubmit)="GuardarAutor(vFrmgLoginForm.value)">
+
+        <div class="form-group"><br>
+          <input type="text" id="f02_nombre" class="form-control" placeholder="Titulo" formControlName="f02_nombre">
+          <input type="date" id="f02_fecha_nacimiento" class="form-control" placeholder="Fecha de nacimiento" formControlName="f02_fecha_nacimiento">
+          <input type="text" id="f02_ciudad" class="form-control" placeholder="Ciudad" formControlName="f02_ciudad">
+          <input type="text" id="f02_correo" class="form-control" placeholder="Correo" formControlName="f02_correo">
+          <button type="submit" class="btn btn-primary">Guardar autor</button>
+        </div>
+      </form>
+
+
+      <h1> Listado de los autores</h1>
+      <table class="table table-hover table-border table-sm">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Fecha de nacimiento</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">Correo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let vAutor of vArrAutor">
+            <th scope="row">{{vAutor.f01_rowid}}</th>
+            <td>{{vAutor.f02_nombre}}</td>
+            <td> {{vAutor.f02_fecha_nacimiento | date:'dd/MM/yy'}} </td>
+            <td>{{vAutor.f02_ciudad}}</td>
+            <td>{{vAutor.f02_correo}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
